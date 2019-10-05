@@ -1,2 +1,2 @@
 # Quinterac
-Simple banking system application created for CISC 322 - Software Quality Assurance
+Simple banking system application created for CISC 327 - Software Quality Assurance
