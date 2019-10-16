@@ -1,2 +1,4 @@
 # Ignore IDE Setting Files
 .idea/
+
+.vscode/

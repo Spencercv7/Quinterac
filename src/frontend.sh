@@ -1,4 +1,4 @@
 #!/bin/bash
 #
 #
-python3 Front_End.py $1 $2
+python3 front_end.py $1 $2
