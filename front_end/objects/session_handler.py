@@ -67,7 +67,7 @@ class SessionHandler:
           return True
 
 
-     #Handles login of the sessoin and prompts the user with which type of session they require
+     #Handles login of the session and prompts the user with which type of session they require
      def login(self):
           while (not self.logged_in):
                session = input("Machine or Agent: ")

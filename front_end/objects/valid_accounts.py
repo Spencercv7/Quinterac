@@ -27,7 +27,4 @@ class ValidAccounts():
      # Checks if account is in valid account dictionary
      def contains_account(self, account_num):
           account_num = int(account_num)
-          if account_num in self.valid_account_list:
-               return True
-          else:
-               return False
+          return(account_num in self.valid_account_list)
