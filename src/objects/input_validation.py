@@ -1,3 +1,5 @@
+
+# Library Imports
 from enum import Enum
 
 # Enum class for tracking session type.
@@ -13,6 +15,10 @@ class InputValidation:
 
      # Varifies that account number is not larger or smaller then 7 digits.
      def valid_account_num(self, accountNum):
+          try:
+               accountNum = int(accountNum)
+          except ValueError:
+               return False
           if accountNum > 9999999 or accountNum < 1000000:
                return False 
           return True
@@ -22,13 +28,13 @@ class InputValidation:
      def valid_account_name(self, accountName):
           if accountName[0] == ' ' or accountName[-1] == ' ':
                return False
-          if 3 >= len(accountName) or len(accountName) >= 30:
+          elif 3 >= len(accountName) or len(accountName) >= 30:
                return False
           return True
 
      # Varifies that amount is of type integer and that it is within permission 
      # for session type.
-     def valid_check_limits(self, atm_limit, agent_limit, amount):
+     def valid_amount(self, atm_limit, amount):
           try:
                amount = int(amount)
           except ValueError:
@@ -36,8 +42,8 @@ class InputValidation:
           if self.session_type == SessionTypes.ATM:
                if (0 > amount or amount > atm_limit):
                     return False
-          if self.session_type == SessionTypes.AGENT:
-               if 0 > amount or amount > agent_limit:
+          elif self.session_type == SessionTypes.AGENT:
+               if 0 > amount or amount > 99999999:
                     return False
           return True
 

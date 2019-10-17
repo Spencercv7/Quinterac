@@ -1,29 +1,33 @@
+
 class ValidAccounts():
 
 # Take in text file, generate dictonary with valid accounts, functions that 
-# add, remove and check for elementsof the dictonary
-
+# add, remove and check for elements of the dictonary
      def __init__(self, file_path):
-          self.validAccountList = {}
+          self.valid_account_list = {}
           with open(file_path) as fp:
                line = fp.readline()
                cnt = 1
                while line:
-                    accountNum = ("{}".format(line.strip()))
+                    account_num = ("{}".format(line.strip()))
                     line = fp.readline()
                     cnt += 1
-                    self.addValidAccount(accountNum)
-          print("Valid Accounts")
+                    self.add_valid_account(account_num)
 
-     # Assuming accountNum is a string
-     def addValidAccount(self, accountNum):
-          accountNum = int(accountNum)
-          self.validAccountList[accountNum] = 1
+     # Adds an account to the valid account dictionary 
+     def add_valid_account(self, account_num):
+          account_num = int(account_num)
+          self.valid_account_list[account_num] = 1
 
-     # Assuming accountNum is a string
-     def queryValidAccount(self, accountNum):
-          accountNum = int(accountNum)
-          if accountNum in self.validAccountList:
+     # Deletes account from the valid account dictionary
+     def delete_account(self, account_num):
+          account_num = int(account_num)
+          del self.valid_account_list[account_num]
+
+     # Checks if account is in valid account dictionary
+     def contains_account(self, account_num):
+          account_num = int(account_num)
+          if account_num in self.valid_account_list:
                return True
           else:
                return False

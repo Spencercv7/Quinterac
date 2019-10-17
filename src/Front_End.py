@@ -1,27 +1,21 @@
+# Library Imports
 import sys
 
 # Object Imports
-from objects.transaction_summary import TransactionSummary
-from objects.input_validation import InputValidation
-from objects.valid_accounts import ValidAccounts
 from objects.session_handler import SessionHandler
 
+# Method to be run on start of the program
+def frontend(account_list_file, trans_summary_file):
 
-#Launches or exists frontend, sessionHandler deals with actual session.
-def frontend(accountList, transactionSummary):
-     print(accountList, transactionSummary)
-     validAccountList = ValidAccounts(accountList)
-     sessionHandler = SessionHandler(validAccountList)
-     
+     # Starts the session handler and passes the path to the files
+     sessionHandler = SessionHandler(account_list_file, trans_summary_file)
+
+     print('Welcome to the Quinterac Banking System\n')
      running = True
      while (running):
-          input_command = input("What would you like to do: ")
-          if (input_command == "exit"):
-               running = False
-          else:
-               sessionHandler.get_command(input_command)
+          running = sessionHandler.get_command()
 
-
-accountFile = sys.argv[1]
-transFile = sys.argv[2]
-frontend(accountFile, transFile)
+if __name__ == "__main__":
+     accountFile = sys.argv[1]
+     transFile = sys.argv[2]
+     frontend(accountFile, transFile)
