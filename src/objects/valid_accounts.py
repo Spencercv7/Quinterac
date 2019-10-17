@@ -15,12 +15,12 @@ class ValidAccounts():
                     self.addValidAccount(accountNum)
           print("Valid Accounts")
 
-     #assuming accountNum is a string
+     # Assuming accountNum is a string
      def addValidAccount(self, accountNum):
           accountNum = int(accountNum)
           self.validAccountList[accountNum] = 1
 
-     #assuming accountNum is a string
+     # Assuming accountNum is a string
      def queryValidAccount(self, accountNum):
           accountNum = int(accountNum)
           if accountNum in self.validAccountList:
