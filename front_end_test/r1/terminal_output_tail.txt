@@ -1,0 +1,2 @@
+Type Login to login or Type Exit to End Program
+Command: Exiting System

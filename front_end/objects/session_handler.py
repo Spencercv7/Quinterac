@@ -1,11 +1,13 @@
 
 # Library Imports
 from enum import Enum
+import sys
+import os
 
 # Object Imports
-from objects.input_validation import InputValidation
-from objects.transaction_summary import TransactionSummary
-from objects.valid_accounts import ValidAccounts
+from front_end.objects.input_validation import InputValidation
+from front_end.objects.transaction_summary import TransactionSummary
+from front_end.objects.valid_accounts import ValidAccounts
 
 #Helps to track which type of session is in use using constant values
 class SessionTypes(Enum):
@@ -24,6 +26,8 @@ class SessionHandler:
           self.withdraw_dict = {}   #dictionaries used to track ATM daily use limits
           self.transfer_dict = {}
           self.deposit_dict = {}
+          with open(self.trans_summary_file, 'w') as ts:
+               ts.write("EOS")
 
      #Prompts the user for a command and sends it to handle_command
      def get_command(self):
