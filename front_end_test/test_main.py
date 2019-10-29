@@ -18,6 +18,16 @@ def test_r1(capsys):
         test_id='r1'
     )
 
+def test_r2(capsys):
+    """Testing r2. All required information stored in folder r2. 
+
+    Arguments:
+        capsys -- object created by pytest to capture stdout and stderr
+    """
+    helper(
+        capsys=capsys,
+        test_id='r2'
+    )
 
 def helper(
         capsys,

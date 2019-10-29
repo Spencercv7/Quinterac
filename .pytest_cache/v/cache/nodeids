@@ -1,3 +1,4 @@
 [
-  "front_end_test/test_main.py::test_r1"
+  "front_end_test/test_main.py::test_r1",
+  "front_end_test/test_main.py::test_r2"
 ]

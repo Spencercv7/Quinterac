@@ -1,2 +1,10 @@
+Welcome to the Quinterac Banking System
+
 Type Login to login or Type Exit to End Program
-Command: Exiting System
+Command:
+Machine or Agent:
+Command:
+Session Logged Out
+Type Login to login or Type Exit to End Program
+Command:
+Exiting System
