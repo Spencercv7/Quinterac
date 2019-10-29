@@ -8,6 +8,7 @@ import front_end.run as app
 
 path = os.path.dirname(os.path.abspath(__file__))
 
+
 def test_r1(capsys):
     """Testing r2. Self-contained (i.e. everything in the code approach)
     [my favorite - all in one place with the code]

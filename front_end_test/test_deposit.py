@@ -20,6 +20,9 @@ def test_r1(capsys):
         terminal_input=[
             'login',
             'machine',
+            'deposit',
+            '1000327',
+            '1000',
             'logout',
             'exit'
         ],
@@ -31,6 +34,7 @@ def test_r1(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
+            'DEP 1000327 1000 0000000 ***',
             'EOS'
         ]
     )
