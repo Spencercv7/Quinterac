@@ -30,5 +30,7 @@
   "front_end_test/test_withdraw.py::test_r8",
   "front_end_test/test_withdraw.py::test_r9",
   "front_end_test/test_withdraw.py::test_r10",
-  "front_end_test/test_withdraw.py::test_r11"
+  "front_end_test/test_withdraw.py::test_r11",
+  "front_end_test/test_transfer.py::test_r3",
+  "front_end_test/test_transfer.py::test_r2"
 ]
