@@ -87,7 +87,7 @@ def test_r3(capsys):
         ],
         intput_valid_accounts=[
             '1000327',
-            '3271001',
+            '3270000',
             '0000000'
         ],
         expected_tail_of_terminal_output=[
@@ -121,7 +121,7 @@ def test_r4(capsys):
         ],
         intput_valid_accounts=[
             '1000327',
-            '3271001',
+            '3270000',
             '0000000'
         ],
         expected_tail_of_terminal_output=[
@@ -155,7 +155,7 @@ def test_r5(capsys):
         ],
         intput_valid_accounts=[
             '1000327',
-            '3271001',
+            '3270000',
             '0000000'
         ],
         expected_tail_of_terminal_output=[
@@ -184,9 +184,6 @@ def test_r6(capsys):
             '1000327',
             '3270000',
             '550000',
-            'logout',
-            'login',
-            'machine',
             'transfer',
             '1000327',
             '3270000',
@@ -196,7 +193,7 @@ def test_r6(capsys):
         ],
         intput_valid_accounts=[
             '1000327',
-            '3271001',
+            '3270000',
             '0000000'
         ],
         expected_tail_of_terminal_output=[
@@ -231,7 +228,7 @@ def test_r7(capsys):
         ],
         intput_valid_accounts=[
             '1000327',
-            '3271001',
+            '3270000',
             '0000000'
         ],
         expected_tail_of_terminal_output=[
@@ -267,7 +264,7 @@ def test_r8(capsys):
         ],
         intput_valid_accounts=[
             '1000327',
-            '3271001',
+            '3270000',
             '0000000'
         ],
         expected_tail_of_terminal_output=[
@@ -286,7 +283,7 @@ def test_r8(capsys):
 
 def test_r9(capsys):
     """
-    T9 - Agent Case: Reejct transfer amount that is less than 0.
+    T9 - Agent Case: Reject transfer amount that is less than 0.
     """
     helper(
         capsys=capsys,
@@ -302,7 +299,7 @@ def test_r9(capsys):
         ],
         intput_valid_accounts=[
             '1000327',
-            '3271001',
+            '3270000',
             '0000000'
         ],
         expected_tail_of_terminal_output=[
@@ -337,7 +334,7 @@ def test_r10(capsys):
         ],
         intput_valid_accounts=[
             '1000327',
-            '3271001',
+            '3270000',
             '0000000'
         ],
         expected_tail_of_terminal_output=[
@@ -354,7 +351,7 @@ def test_r10(capsys):
     )
 
 
-def test_r10(capsys):
+def test_r11(capsys):
     """
     T11 - Agent Case: Accept valid transfer amount.
     """
@@ -372,7 +369,7 @@ def test_r10(capsys):
         ],
         intput_valid_accounts=[
             '1000327',
-            '3271001',
+            '3270000',
             '0000000'
         ],
         expected_tail_of_terminal_output=[
@@ -384,7 +381,7 @@ def test_r10(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'XFR 1000327 100000 3270000 ***'
+            'XFR 1000327 100000 3270000 ***',
             'EOS 0000000 000 0000000 ***'
         ]
     )
