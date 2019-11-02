@@ -28,7 +28,8 @@ class InputValidation:
      # Varifies that account name does not being or end with a ' ' and that 
      # its length is no shorter then 3 and no longer then 30.
      def valid_account_name(self, accountName):
-          if accountName[0] == ' ' or accountName[-1] == ' ':
+          accountName = str(accountName)
+          if accountName.startswith(' ') or accountName.endswith(' '):
                return False
           elif 3 >= len(accountName) or len(accountName) >= 30:
                return False
@@ -41,10 +42,10 @@ class InputValidation:
                amount = int(amount)
           except ValueError:
                return False
-          if self.session_type == SessionTypes.ATM:
+          if self.session_type.value == SessionTypes.ATM.value:
                if (0 > amount or amount > atm_limit):
                     return False
-          elif self.session_type == SessionTypes.AGENT:
+          elif self.session_type.value == SessionTypes.AGENT.value:
                if 0 > amount or amount > 99999999:
                     return False
           return True

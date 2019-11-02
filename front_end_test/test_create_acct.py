@@ -257,7 +257,8 @@ def test_r8(capsys):
 
 def test_r9(capsys):
     """
-    T9 - Agent Case: Rejection of the creation of an account with a name that starts with a ' '
+    T9 - Agent Case: Testing that Python ignores space at the beginning of an inputted account name 
+        and successfully creates a new account
     """
     helper(
         capsys=capsys,
@@ -274,7 +275,7 @@ def test_r9(capsys):
             '0000000'
         ],
         expected_tail_of_terminal_output=[
-            'Invalid Account Number or Name',
+            'Account Created',
             'Command:',
             'Session Logged Out',
             'Type Login to login or Type Exit to End Program',
@@ -282,6 +283,7 @@ def test_r9(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
+            'NEW 3270000 000 0000000 Spencer Venable',
             'EOS 0000000 000 0000000 ***'
         ]
     )
@@ -289,7 +291,8 @@ def test_r9(capsys):
 
 def test_r10(capsys):
     """
-    T10 - Agent Case: Rejection of the creation of an account with a name that ends with a space.
+    T10  - Agent Case: Testing that Python ignores space at the end of an inputted account name 
+        and successfully creates a new account
     """
     helper(
         capsys=capsys,
@@ -306,7 +309,7 @@ def test_r10(capsys):
             '0000000'
         ],
         expected_tail_of_terminal_output=[
-            'Invalid Account Number or Name',
+            'Account Created',
             'Command:',
             'Session Logged Out',
             'Type Login to login or Type Exit to End Program',
@@ -314,6 +317,7 @@ def test_r10(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
+            'NEW 3270000 000 0000000 Spencer Venable',
             'EOS 0000000 000 0000000 ***'
         ]
     )
@@ -383,6 +387,7 @@ def test_r12(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
+            'NEW 3271001 000 0000000 Spencer Venable',
             'EOS 0000000 000 0000000 ***'
         ]
     )

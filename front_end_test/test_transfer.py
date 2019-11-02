@@ -37,8 +37,7 @@ def test_r1(capsys):
 
 def test_r2(capsys):
     """
-    T2 - ATM Case: Rejection of a transfer to or from an account that has a non-numeric
-    number.
+    T2 - ATM Case: Rejection of a transfer to or from an account that has a non-numeric character.
     """
     helper(
         capsys=capsys,
@@ -72,7 +71,7 @@ def test_r2(capsys):
 
 def test_r3(capsys):
     """
-    T3 - ATM Case: Rejection of a transfer with an ammount larger then 1000000.
+    T3 - ATM Case: Rejection of a transfer with an amount larger then $10000.
     """
     helper(
         capsys=capsys,

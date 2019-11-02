@@ -115,7 +115,7 @@ def test_r4(capsys):
             '0000000'
         ],
         expected_tail_of_terminal_output=[
-            'Invalid Account Number or Name',
+            'Account Deleted',
             'Command:',
             'Session Logged Out',
             'Type Login to login or Type Exit to End Program',
@@ -123,6 +123,7 @@ def test_r4(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
+            'DEL 3271001 000 0000000 Spencer Venable',
             'EOS 0000000 000 0000000 ***'
         ]
     )
@@ -158,6 +159,7 @@ def test_r5(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
+            'DEL 3271001 000 0000000 Spencer Venable',
             'EOS 0000000 000 0000000 ***'
         ]
     )
