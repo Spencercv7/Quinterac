@@ -1,4 +1,9 @@
 # Ignore IDE Setting Files
 .idea/
-
 .vscode/
+
+# Ignore Pycache files
+*.pyc
+*.pyo
+.__pytest_cache/
+.__pytest_cache__/
