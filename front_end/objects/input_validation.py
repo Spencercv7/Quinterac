@@ -25,13 +25,11 @@ class InputValidation:
                return False 
           return True
 
-     # Varifies that account name does not being or end with a ' ' and that 
-     # its length is no shorter then 3 and no longer then 30.
+     # Varifies that account name is no shorter then 3 and no longer then 30.
+     # Does not check for leading or ending spaces as these are ignored in Python terminal
      def valid_account_name(self, accountName):
           accountName = str(accountName)
-          if accountName.startswith(' ') or accountName.endswith(' '):
-               return False
-          elif 3 >= len(accountName) or len(accountName) >= 30:
+          if 3 >= len(accountName) or len(accountName) >= 30:
                return False
           return True
 
