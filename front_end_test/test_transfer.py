@@ -104,9 +104,9 @@ def test_r3(capsys):
     )
 
 def test_r4(capsys):
-"""
-T4 - ATM Case: Rejection of a transfer with an amount less than zero dollars.
-"""
+    """
+    T4 - ATM Case: Rejection of a transfer with an amount less than zero dollars.
+    """
     helper(
         capsys=capsys,
         terminal_input=[
