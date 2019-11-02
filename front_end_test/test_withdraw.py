@@ -28,7 +28,7 @@ def test_r1(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -60,7 +60,7 @@ def test_r2(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -92,7 +92,7 @@ def test_r3(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -124,7 +124,7 @@ def test_r4(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -156,7 +156,7 @@ def test_r5(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -171,13 +171,22 @@ def test_r6(capsys):
             'machine',
             'withdraw',
             '1000000',
-            '200000',
+            '100000',
             'withdraw',
             '1000000',
-            '200000',
+            '100000',
             'withdraw',
             '1000000',
-            '200000',
+            '100000',
+            'withdraw',
+            '1000000',
+            '100000',
+            'withdraw',
+            '1000000',
+            '100000',
+            'withdraw',
+            '1000000',
+            '100000',
             'logout',
             'exit'
         ],
@@ -194,9 +203,12 @@ def test_r6(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'WDR 1000000 200000 0000000 ***',
-            'WDR 1000000 200000 0000000 ***',
-            'EOS'
+            'WDR 1000000 100000 0000000 ***',
+            'WDR 1000000 100000 0000000 ***',
+            'WDR 1000000 100000 0000000 ***',
+            'WDR 1000000 100000 0000000 ***',
+            'WDR 1000000 100000 0000000 ***',
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -224,7 +236,7 @@ def test_r7(capsys):
         ],
         expected_output_transactions=[
             'WDR 1000000 100000 0000000 ***',
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -239,7 +251,7 @@ def test_r8(capsys):
             'agent',
             'withdraw',
             '1000000',
-            '10000000',
+            '100000000',
             'logout',
             'exit'
         ],
@@ -256,7 +268,7 @@ def test_r8(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -288,7 +300,7 @@ def test_r9(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -321,7 +333,7 @@ def test_r10(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -350,6 +362,6 @@ def test_r11(capsys):
         ],
         expected_output_transactions=[
             'WDR 1000000 10000 0000000 ***',
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )

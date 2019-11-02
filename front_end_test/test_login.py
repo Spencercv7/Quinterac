@@ -19,7 +19,7 @@ def test_r1(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -44,7 +44,7 @@ def test_r2(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -67,7 +67,7 @@ def test_r3(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -92,7 +92,7 @@ def test_r4(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -123,7 +123,7 @@ def test_r5(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -147,7 +147,7 @@ def test_r6(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )
 
@@ -176,6 +176,6 @@ def test_r7(capsys):
             'Exiting System'
         ],
         expected_output_transactions=[
-            'EOS'
+            'EOS 0000000 000 0000000 ***'
         ]
     )

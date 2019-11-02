@@ -17,4 +17,4 @@ class TransactionSummary:
     # Must be called at end of session to save transaction summary.
     def transaction_close(self):
         with open(self.transaction_summary, 'a') as ts:
-            ts.write("EOS")
+            ts.write("EOS 0000000 000 0000000 ***")
