@@ -217,36 +217,36 @@ def test_r7(capsys):
     """
     T7 - ATM Case: Acceptance of a valid transfer.
     """
-        helper(
-            capsys=capsys,
-            terminal_input=[
-                'login',
-                'machine',
-                'transfer',
-                '1000327',
-                '3270000',
-                '550000',
-                'logout',
-                'exit'
-            ],
-            intput_valid_accounts=[
-                '1000327',
-                '3271001',
-                '0000000'
-            ],
-            expected_tail_of_terminal_output=[
-                'Transfer Completed',
-                'Command:',
-                'Session Logged Out',
-                'Type Login to login or Type Exit to End Program',
-                'Command:',
-                'Exiting System'
-            ],
-            expected_output_transactions=[
-                'XFR 1000327 550000 3270000 ***',
-                'EOS 0000000 000 0000000 ***'
-            ]
-        )
+    helper(
+        capsys=capsys,
+        terminal_input=[
+            'login',
+            'machine',
+            'transfer',
+            '1000327',
+            '3270000',
+            '550000',
+            'logout',
+            'exit'
+        ],
+        intput_valid_accounts=[
+            '1000327',
+            '3271001',
+            '0000000'
+        ],
+        expected_tail_of_terminal_output=[
+            'Transfer Completed',
+            'Command:',
+            'Session Logged Out',
+            'Type Login to login or Type Exit to End Program',
+            'Command:',
+            'Exiting System'
+        ],
+        expected_output_transactions=[
+            'XFR 1000327 550000 3270000 ***',
+            'EOS 0000000 000 0000000 ***'
+        ]
+    )
 
 
 def test_r8(capsys):
