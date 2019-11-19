@@ -4,7 +4,7 @@ import os
 from back_end.objects.field_validator import transaction_is_valid
 from back_end.objects.master_accounts import MasterAccounts
 
-master_accounts = MasterAccounts(os.path.dirname(os.path.realpath(__file__)) +'\master_account.txt')
+master_accounts = MasterAccounts(sys.argv[1])
 
 def main():
       generate_merge_transaction()  #create merged transaction summary file
@@ -150,8 +150,5 @@ def generate_merge_transaction():
       except IOError:
             print("Failed to Create new File.")
 
-
-
-main()
 
 

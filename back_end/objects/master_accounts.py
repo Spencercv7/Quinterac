@@ -14,43 +14,43 @@ class MasterAccounts:
 
       def from_file(self, _masteraccounts):
 
-            master_file = open(_masteraccounts, 'r')
-            line = master_file.readline()
-            account_valid = True
-            master_accounts = {}
-
-            while line and account_valid:
-                  fields = line.split()
-
-                  number_check = number_is_valid(fields[0])
-                  balance_check = amount_is_valid(fields[1])
-                  name = ''
-
-                  for i in (range(2, len(fields))):
-                        if (i == len(fields)-1):
-                              name += fields[i]
-                        else:
-                              name += fields[i] + ' '
-
-                  name_check = name_is_valid(name)
-
-                  if (number_check and balance_check and name_check):
-                        number = fields[0] #changed to stay as string
-                        balance = int(fields[1])
-                        name = str(fields[2])
-                        master_accounts[number] = Account(number, name, balance)
-                  else:
-                        print(fields[0], fields[1], fields[2])
-                        account_valid = False
-                  
+            with open(_masteraccounts) as master_file:
                   line = master_file.readline()
+                  account_valid = True
+                  master_accounts = {}
 
-            if account_valid == False:
-                  print('ERROR')
-                  exit()
-                  # Error Handling
+                  while line and account_valid:
+                        fields = line.split()
 
-            return master_accounts
+                        number_check = number_is_valid(fields[0])
+                        balance_check = amount_is_valid(fields[1])
+                        name = ''
+
+                        for i in (range(2, len(fields))):
+                              if (i == len(fields)-1):
+                                    name += fields[i]
+                              else:
+                                    name += fields[i] + ' '
+
+                        name_check = name_is_valid(name)
+
+                        if (number_check and balance_check and name_check):
+                              number = fields[0] #changed to stay as string
+                              balance = int(fields[1])
+                              name = str(fields[2])
+                              master_accounts[number] = Account(number, name, balance)
+                        else:
+                              print(fields[0], fields[1], fields[2])
+                              account_valid = False
+                        
+                        line = master_file.readline()
+
+                  if account_valid == False:
+                        print('ERROR')
+                        exit()
+                        # Error Handling
+
+                  return master_accounts
 
       
                   
