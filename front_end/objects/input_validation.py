@@ -16,20 +16,20 @@ class InputValidation:
           self.session_type = session_type
 
      # Varifies that account number is not larger or smaller then 7 digits.
-     def valid_account_num(self, accountNum):
+     def valid_account_num(self, account_num):
           try:
-               accountNum = int(accountNum)
+               account_num = int(account_num)
           except ValueError:
                return False
-          if accountNum > 9999999 or accountNum < 1000000:
+          if account_num > 9999999 or account_num < 1000000:
                return False 
           return True
 
      # Varifies that account name is no shorter then 3 and no longer then 30.
      # Does not check for leading or ending spaces as these are ignored in Python terminal
-     def valid_account_name(self, accountName):
-          accountName = str(accountName)
-          if 3 >= len(accountName) or len(accountName) >= 30:
+     def valid_account_name(self, account_name):
+          account_name = str(account_name)
+          if 3 >= len(account_name) or len(account_name) >= 30:
                return False
           return True
 
