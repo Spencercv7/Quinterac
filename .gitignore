@@ -6,4 +6,5 @@
 *.pyc
 *.pyo
 .__pytest_cache/
+.pytest_cache/
 .__pytest_cache__/
