@@ -1,5 +1,5 @@
-from objects.account import Account
-from objects.field_validator import number_is_valid, name_is_valid, amount_is_valid
+from back_end.objects.account import Account
+from back_end.objects.field_validator import number_is_valid, name_is_valid, amount_is_valid
 
 class MasterAccounts:
 

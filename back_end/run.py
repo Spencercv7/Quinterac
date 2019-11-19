@@ -1,11 +1,10 @@
 # Library Imports
 import sys
 import os
-from objects.field_validator import transaction_is_valid
-from objects.master_accounts import MasterAccounts
+from back_end.objects.field_validator import transaction_is_valid
+from back_end.objects.master_accounts import MasterAccounts
 
-
-master_accounts = MasterAccounts('master_account.txt')
+master_accounts = MasterAccounts(os.path.dirname(os.path.realpath(__file__)) +'\master_account.txt')
 
 def main():
       generate_merge_transaction()  #create merged transaction summary file
@@ -13,7 +12,6 @@ def main():
             with open('merged_transaction.txt') as merged:
                   transactions = merged.readlines()
                   for line in transactions:
-                        print(line)
                         handle_transaction(line)
 
       except IOError:
@@ -23,8 +21,8 @@ def main():
       #master_accounts.createNewMasterAccountFile()
 
 
-def handle_transaction(transaction):
-      transaction = transaction.split()
+def handle_transaction(transaction_string):
+      transaction = transaction_string.split()
       length = len(transaction)
 
       code = transaction[0]
@@ -38,39 +36,49 @@ def handle_transaction(transaction):
                   name += transaction[i]
             else:
                   name += transaction[i] + ' '
+      
+      valid_transaction = False
 
       if (code == 'NEW'):
-            handle_new_account(to_account, name)
+            valid_transaction = handle_new_account(to_account, name)
       
       elif (code == 'DEL'):
-            handle_del_account(to_account, name)
+            valid_transaction = handle_del_account(to_account, name)
 
       elif (code == 'XFR'):
-            handle_transfer(to_account, from_account, amount)
+            valid_transaction = handle_transfer(to_account, from_account, amount)
 
       elif (code == 'DEP'):
-            handle_deposit(to_account, amount)
+            valid_transaction = handle_deposit(to_account, amount)
 
       elif (code == 'WDR'):
-            handle_withdraw(to_account, amount)
+            valid_transaction = handle_withdraw(to_account, amount)
+
+      if (not valid_transaction and code != 'EOS'):
+            print("Transaction: " + transaction_string)
       
 
 
 def handle_new_account(to_account, name):
       if not (to_account in master_accounts.accounts):
             master_accounts.add(to_account, name)
+            return True
       else:
             print("Error: Duplicate account creation attempt " + str(to_account))
+            return False
 
 
 def handle_del_account(to_account, name):
       if (to_account in master_accounts.accounts):
             if (master_accounts.accounts[to_account].name == name and master_accounts.accounts[to_account].balance == 0):
                   master_accounts.remove(to_account)
+                  return True
             else:
                   print("Error: Invalid attempt to delete account " + str(to_account))
+                  return False
       else:
             print("Error: Invalid attempt to delete non-existent account " + str(to_account))
+            return False
 
 
 def handle_transfer(to_account, from_account, amount):
@@ -78,31 +86,40 @@ def handle_transfer(to_account, from_account, amount):
             if (master_accounts.accounts[to_account].balance <= 99999999-amount and master_accounts.accounts[from_account].balance >= amount):
                   master_accounts.accounts[to_account].balance += amount
                   master_accounts.accounts[from_account].balance -= amount
+                  return True
             else:
                   print("Transfer Error: Failed transfer to account " + str(to_account) + ' from ' + str(from_account))
+                  return False
       else:
             print("Transfer Error: Transfer declined due to one or more non-existent accounts")
+            return False
 
 
 def handle_deposit(to_account, amount):
       if (to_account in master_accounts.accounts):
             if (master_accounts.accounts[to_account].balance <= 99999999-amount):
                   master_accounts.accounts[to_account].balance += amount
+                  return True
             else:
                   print("Deposit Error: Account " + str(to_account) + " balance exceeds limit")
                   master_accounts.accounts[to_account].setInvalid()
+                  return False
       else:
             print("Deposit Error: Account " + str(to_account) + " does not exist")
+            return False
 
 def handle_withdraw(to_account, amount):
       if (to_account in master_accounts.accounts):
             if (master_accounts.accounts[to_account].balance >= amount):
                   master_accounts.accounts[to_account].balance -= amount
+                  return True
             else:
                   print("Withdraw Error: Account " + str(to_account) + " has insufficient funds")
                   master_accounts.accounts[to_account].setInvalid()
+                  return False
       else:
             print("Withdraw Error: Account " + str(to_account) + " does not exist")
+            return False
 
 
 
@@ -110,7 +127,7 @@ def handle_withdraw(to_account, amount):
 Gets transaction files from transaction_files dir and merges them to create a merged transaction summary file
 '''
 def generate_merge_transaction():
-      transaction_dir = 'transaction_files'
+      transaction_dir = os.path.dirname(os.path.realpath(__file__)) + '\\transaction_files'
       try: # Attempts to create new file for writing transactions to
             merged_trans_file = open('merged_transaction.txt', 'w')
             try: # Attempts to read files in folder
@@ -132,6 +149,9 @@ def generate_merge_transaction():
                   print("Could not find transaction directory")
       except IOError:
             print("Failed to Create new File.")
+
+
+
 main()
 
 
