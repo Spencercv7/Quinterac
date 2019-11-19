@@ -37,6 +37,7 @@ class MasterAccounts:
                   if (number_check and balance_check and name_check):
                         number = fields[0] #changed to stay as string
                         balance = int(fields[1])
+                        print(balance)
                         name = str(fields[2])
                         master_accounts[number] = Account(number, balance, name)
                   else:

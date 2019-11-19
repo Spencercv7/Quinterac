@@ -75,6 +75,8 @@ def handle_del_account(to_account, name):
 
 def handle_transfer(to_account, from_account, amount):
       if (to_account in master_accounts.accounts and from_account in master_accounts.accounts):
+            print(master_accounts.accounts[to_account].balance)
+            print(master_accounts.accounts[from_account].balance)
             if (master_accounts.accounts[to_account].balance <= 99999999-amount and master_accounts.accounts[from_account].balance >= amount):
                   master_accounts.accounts[to_account].balance += amount
                   master_accounts.accounts[from_account].balance -= amount
