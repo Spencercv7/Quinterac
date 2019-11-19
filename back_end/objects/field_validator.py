@@ -23,9 +23,10 @@ def amount_is_valid(amount):
       return True
 
 def name_is_valid(account_name):
+    
       account_name = str(account_name)
-
-      if 3 >= len(account_name) or len(account_name) >= 30:
+      
+      if 3 > len(account_name) or len(account_name) > 30:
             return False
 
       return True
@@ -41,9 +42,12 @@ def transaction_is_valid(transaction):
             from_account = transaction[3]
             name = ''
 
-            for string in range(4, length):
-                  name += ' ' + transaction[string]
-
+            for i in range(4, length):
+                  if (i == length-1):
+                        name += transaction[i]
+                  else:
+                        name += transaction[i] + ' '
+                        
             return ((code in transactions) and 
                   number_is_valid(to_account) and
                   number_is_valid(from_account) and
