@@ -16,7 +16,7 @@ Paramaters
 
 '''
 
-master_accounts = MasterAccounts(sys.argv[1])
+
 
 '''
 Handles main execution of the program. Takes in the parameters from the command line
@@ -25,18 +25,20 @@ Creates new valid account list and master account file
 '''
 def main():
       
+      master_accounts = MasterAccounts(sys.argv[1])
+
       merged_trans_file = sys.argv[2]  #recieves command line parameters
       new_valid_account_file = sys.argv[3]
       new_master_account_file = sys.argv[4]
 
       transaction_files = sys.argv[5:]
 
-      generate_merge_transaction(merged_trans_file, transaction_files)  #create merged transaction summary file
+      generate_merge_transaction(merged_trans_file, transaction_files, master_accounts)  #create merged transaction summary file
       try:
             with open(merged_trans_file) as merged:  # process transaction line by line
                   transactions = merged.readlines()
                   for line in transactions:
-                        handle_transaction(line)
+                        handle_transaction(line, master_accounts)
 
       except IOError:
             print("Count not open Merged Transaction File")
@@ -49,7 +51,7 @@ Takes in a transaction string describing a transaction
 Passes string to appropriate function for it to be further processed
 These handling functions do not need to check validity of transaction string format as that is checked upon creation of merged transaction file
 '''
-def handle_transaction(transaction_string):
+def handle_transaction(transaction_string, master_accounts):
       transaction = transaction_string.split()
       length = len(transaction)
 
@@ -68,19 +70,19 @@ def handle_transaction(transaction_string):
       valid_transaction = False
 
       if (code == 'NEW'):
-            valid_transaction = handle_new_account(to_account, name)
+            valid_transaction = handle_new_account(to_account, name, master_accounts)
       
       elif (code == 'DEL'):
-            valid_transaction = handle_del_account(to_account, name)
+            valid_transaction = handle_del_account(to_account, name, master_accounts)
 
       elif (code == 'XFR'):
-            valid_transaction = handle_transfer(to_account, from_account, amount)
+            valid_transaction = handle_transfer(to_account, from_account, amount, master_accounts)
 
       elif (code == 'DEP'):
-            valid_transaction = handle_deposit(to_account, amount)
+            valid_transaction = handle_deposit(to_account, amount, master_accounts)
 
       elif (code == 'WDR'):
-            valid_transaction = handle_withdraw(to_account, amount)
+            valid_transaction = handle_withdraw(to_account, amount, master_accounts)
 
       if (not valid_transaction and code != 'EOS'):
             print("Transaction: " + transaction_string) # display transaction string of invalid transactions
@@ -90,7 +92,7 @@ def handle_transaction(transaction_string):
 Checks validity of transactions attempt to create a new account
 Produces errors if account already exists
 '''
-def handle_new_account(to_account, name):
+def handle_new_account(to_account, name, master_accounts):
       if not (to_account in master_accounts.accounts):
             master_accounts.add(to_account, name)
             return True
@@ -103,7 +105,7 @@ def handle_new_account(to_account, name):
 Checks validity of transactions attempt to delete a new account
 Produces errors if account does not exist or has non-zero balance
 '''
-def handle_del_account(to_account, name):
+def handle_del_account(to_account, name, master_accounts):
       if (to_account in master_accounts.accounts):
             if (master_accounts.accounts[to_account].name == name and master_accounts.accounts[to_account].balance == 0):
                   master_accounts.remove(to_account)
@@ -119,7 +121,7 @@ def handle_del_account(to_account, name):
 Checks validity of transactions attempt to transfer funds
 Produces errors if one or more accounts do not exist or do not have valid balances
 '''
-def handle_transfer(to_account, from_account, amount):
+def handle_transfer(to_account, from_account, amount, master_accounts):
       if (to_account in master_accounts.accounts and from_account in master_accounts.accounts):
             if (master_accounts.accounts[to_account].balance <= 99999999-amount and master_accounts.accounts[from_account].balance >= amount): # if fund reciever will go over limit or if giver has insufficient funds
                   master_accounts.accounts[to_account].balance += amount
@@ -137,7 +139,7 @@ def handle_transfer(to_account, from_account, amount):
 Checks validity of transactions attempt to deposit funds
 Produces errors if account does not exist or if the deposit amount will cause account to exceed balance limit
 '''
-def handle_deposit(to_account, amount):
+def handle_deposit(to_account, amount, master_accounts):
       if (to_account in master_accounts.accounts):
             if (master_accounts.accounts[to_account].balance <= 99999999-amount):
                   master_accounts.accounts[to_account].balance += amount
@@ -155,7 +157,7 @@ def handle_deposit(to_account, amount):
 Checks validity of transactions attempt to withdraw funds
 Produces errors if account does not exist or if the account has insufficient funds
 '''
-def handle_withdraw(to_account, amount):
+def handle_withdraw(to_account, amount, master_accounts):
       if (to_account in master_accounts.accounts):
             if (master_accounts.accounts[to_account].balance >= amount):
                   master_accounts.accounts[to_account].balance -= amount
@@ -174,7 +176,7 @@ def handle_withdraw(to_account, amount):
 Gets transaction files from transaction_files dir and merges them to create a merged transaction summary file
 Checks validity of each transaction and causes fatal error if one is in incorrect format
 '''
-def generate_merge_transaction(merged_file_name, transaction_files):
+def generate_merge_transaction(merged_file_name, transaction_files, master_accounts):
       try: # Attempts to create new file for writing transactions to
             merged_trans_file = open(merged_file_name, 'w')  # create and open new merge transaction file
             for file in transaction_files:   # list of transaction summary files

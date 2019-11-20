@@ -69,7 +69,7 @@ def helper(
         new_master_accounts,
         transactions_file1,
         transactions_file2,
-        transactions_file3 ]
+        transactions_file3]
 
     # run the program
     app.main()
@@ -125,3 +125,9 @@ def helper(
     # clean up
     os.close(temp_fd)
     os.remove(temp_file)
+    os.close(temp_fd1)
+    os.remove(temp_file1)
+    os.close(temp_fd2)
+    os.remove(temp_file2)
+    os.close(temp_fd3)
+    os.remove(temp_file3)
