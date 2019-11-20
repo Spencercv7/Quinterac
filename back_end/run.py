@@ -17,8 +17,8 @@ def main():
       except IOError:
             print("Count not open Merged Transaction File")
 
-      #master_accounts.createValidAccountList()
-      #master_accounts.createNewMasterAccountFile()
+      master_accounts.create_valid_account_list()
+      master_accounts.create_new_master_account_file()
 
 
 def handle_transaction(transaction_string):
@@ -127,7 +127,7 @@ def handle_withdraw(to_account, amount):
 Gets transaction files from transaction_files dir and merges them to create a merged transaction summary file
 '''
 def generate_merge_transaction():
-      transaction_dir = os.path.dirname(os.path.realpath(__file__)) + '\\transaction_files'
+      transaction_dir = os.path.dirname(os.path.realpath(__file__)) + '/transaction_files'
       try: # Attempts to create new file for writing transactions to
             merged_trans_file = open('merged_transaction.txt', 'w')
             try: # Attempts to read files in folder

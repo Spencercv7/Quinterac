@@ -37,10 +37,8 @@ class MasterAccounts:
                         if (number_check and balance_check and name_check):
                               number = fields[0] #changed to stay as string
                               balance = int(fields[1])
-                              name = str(fields[2])
                               master_accounts[number] = Account(number, name, balance)
                         else:
-                              print(fields[0], fields[1], fields[2])
                               account_valid = False
                         
                         line = master_file.readline()
@@ -51,6 +49,31 @@ class MasterAccounts:
                         # Error Handling
 
                   return master_accounts
+      
+      def create_valid_account_list(self):
+            try:
+                  valid_account_file = open('valid_accounts_file.txt', 'w+')
+                  for account_num in sorted(self.accounts):
+                        account = self.accounts[account_num]
+                        if account.valid == True:
+                              valid_account_file.write(str(account_num) +"\n")
+                  valid_account_file.close()
+            except IOError:
+                  print("Could not open Valid Accounts File.")
+
+            
+      
+      def create_new_master_account_file(self):
+            try:
+                  master_account_file = open('master_account.txt', 'w+')
+                  for account_num in sorted(self.accounts):
+                        account = self.accounts[account_num]
+                        if account.valid == True:
+                              master_account_file.write(str(account_num) + " " + str(account.balance) + " " + str(account.name) + "\n")
+                  master_account_file.close()
+            except IOError:
+                  print("Could not open Master Account file.")
+
 
       
                   
