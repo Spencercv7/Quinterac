@@ -1,3 +1,12 @@
+# python -m back_end master_account.txt merged_trans.txt new_valid_accounts.txt new_master_account.txt transactions_1.txt transactions_2.txt
+
+# Paramaters
+# 1. Current Master Account Text File
+# 2. Name for Merged Transaction Text File
+# 3. Name for New Valid Account List Text File
+# 4. Name for New Master Account Text File
+# 5 and on. List The Transaction Summary Text Files to be Processed
+
 # Library Imports
 import sys
 import os
@@ -7,9 +16,16 @@ from back_end.objects.master_accounts import MasterAccounts
 master_accounts = MasterAccounts(sys.argv[1])
 
 def main():
-      generate_merge_transaction()  #create merged transaction summary file
+      
+      merged_trans_file = sys.argv[2]
+      new_valid_account_file = sys.argv[3]
+      new_master_account_file = sys.argv[4]
+
+      transaction_files = sys.argv[5:]
+
+      generate_merge_transaction(merged_trans_file, transaction_files)  #create merged transaction summary file
       try:
-            with open('merged_transaction.txt') as merged:
+            with open(merged_trans_file) as merged:
                   transactions = merged.readlines()
                   for line in transactions:
                         handle_transaction(line)
@@ -17,8 +33,8 @@ def main():
       except IOError:
             print("Count not open Merged Transaction File")
 
-      master_accounts.create_valid_account_list()
-      master_accounts.create_new_master_account_file()
+      master_accounts.create_valid_account_list(new_valid_account_file)
+      master_accounts.create_new_master_account_file(new_master_account_file)
 
 
 def handle_transaction(transaction_string):
@@ -126,14 +142,13 @@ def handle_withdraw(to_account, amount):
 '''
 Gets transaction files from transaction_files dir and merges them to create a merged transaction summary file
 '''
-def generate_merge_transaction():
-      transaction_dir = os.path.dirname(os.path.realpath(__file__)) + '/transaction_files'
+def generate_merge_transaction(merged_file_name, transaction_files):
       try: # Attempts to create new file for writing transactions to
-            merged_trans_file = open('merged_transaction.txt', 'w')
+            merged_trans_file = open(merged_file_name, 'w')
             try: # Attempts to read files in folder
-                  for file in os.listdir(transaction_dir): 
+                  for file in transaction_files: 
                         try:
-                              with open(transaction_dir + '/' + file) as f:
+                              with open(file) as f:
                                     content = f.readlines()
                                     for transaction in content:
                                           transaction_list = transaction.split()

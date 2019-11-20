@@ -50,9 +50,9 @@ class MasterAccounts:
 
                   return master_accounts
       
-      def create_valid_account_list(self):
+      def create_valid_account_list(self, file_name):
             try:
-                  valid_account_file = open('valid_accounts_file.txt', 'w+')
+                  valid_account_file = open(file_name, 'w+')
                   for account_num in sorted(self.accounts):
                         account = self.accounts[account_num]
                         if account.valid == True:
@@ -63,9 +63,9 @@ class MasterAccounts:
 
             
       
-      def create_new_master_account_file(self):
+      def create_new_master_account_file(self, file_name):
             try:
-                  master_account_file = open('master_account.txt', 'w+')
+                  master_account_file = open(file_name, 'w+')
                   for account_num in sorted(self.accounts):
                         account = self.accounts[account_num]
                         if account.valid == True:
