@@ -1,5 +1,10 @@
 
-import tempfile
+import tempfile as tempfile
+import tempfile as tempfile1
+import tempfile as tempfile2
+import tempfile as temp_file3
+import tempfile as temp_file
+
 from importlib import reload
 import os
 import io
@@ -45,17 +50,17 @@ def helper(
         wf.write('\n'.join(input_master_accounts))
 
     temp_fd4, temp_file4 = tempfile.mkstemp()
-    transactions_file1 = temp_file3
+    transactions_file1 = temp_file4
     with open(transactions_file1, 'w') as wf:
         wf.write('\n'.join(input_summary_one))
 
     temp_fd5, temp_file5 = tempfile.mkstemp()
-    transactions_file2 = temp_file3
+    transactions_file2 = temp_file5
     with open(transactions_file2, 'w') as wf:
         wf.write('\n'.join(input_summary_two))
 
     temp_fd6, temp_file6 = tempfile.mkstemp()
-    transactions_file3 = temp_file3
+    transactions_file3 = temp_file6
     with open(transactions_file3, 'w') as wf:
         wf.write('\n'.join(input_summary_three))
 

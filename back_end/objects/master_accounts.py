@@ -48,13 +48,13 @@ class MasterAccounts:
                               balance = int(fields[1])
                               master_accounts[number] = Account(number, name, balance)
                         else:
+                              print("Account: " + line)
                               account_valid = False
                         
                         line = master_file.readline()
 
                   if account_valid == False: # If an invalid account is read in the system throws an error and exits.
-                        print('ERROR')
-                        print("Program exits - omitted for testing purposes")
+                        print("Account Error Program exits - omitted for testing purposes")
                         # Error Handling
 
                   return master_accounts

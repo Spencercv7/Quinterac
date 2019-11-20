@@ -14,12 +14,16 @@ def test_r1(capsys):
         ],
         input_summary_one=[
             'EOS 0000000 000 0000000 ***'
-        ], input_summary_two=[
+        ], 
+        input_summary_two=[
+            'WDR 1000327 5000 0000000 ***',
             'EOS 0000000 000 0000000 ***'
-        ], input_summary_three=[
+        ], 
+        input_summary_three=[
             'EOS 0000000 000 0000000 ***'
         ],
         expected_merged_transactions=[
+            'WDR 1000327 5000 0000000 ***',
             'EOS 0000000 000 0000000 ***'
         ],
         expected_valid_accounts=[
@@ -27,9 +31,10 @@ def test_r1(capsys):
             '2222333',
             '2323453'
         ], expected_master_accounts=[
-            '1000327 10000 Spencer Venable',
+            '1000327 5000 Spencer Venable',
             '2222333 2000 Ben Lammers',
             '2323453 23231 Jolene Lammers'
         ],
-        expected_tail_of_terminal_output=["['EOS', '0000000', '000', '0000000', '***']", "['EOS', '0000000', '000', '0000000', '***']", "['EOS', '0000000', '000', '0000000', '***']", "a"]
+        expected_tail_of_terminal_output=[
+        ]
     )

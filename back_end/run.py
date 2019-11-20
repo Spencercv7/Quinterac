@@ -24,7 +24,6 @@ Calls creation of merged transaction file and subsequently processes the merged 
 Creates new valid account list and master account file
 '''
 def main():
-      
       master_accounts = MasterAccounts(sys.argv[1])
 
       merged_trans_file = sys.argv[2]  #recieves command line parameters
@@ -84,7 +83,7 @@ def handle_transaction(transaction_string, master_accounts):
             valid_transaction = handle_withdraw(to_account, amount, master_accounts)
 
       if (not valid_transaction and code != 'EOS'):
-            print("Transaction: " + transaction_string) # display transaction string of invalid transactions
+            print("Transaction: " + transaction_string.strip()) # display transaction string of invalid transactions
       
 
 '''
@@ -188,7 +187,7 @@ def generate_merge_transaction(merged_file_name, transaction_files, master_accou
                                           merged_trans_file.write(transaction)
                                     elif (transaction != "EOS 0000000 000 0000000 ***"): # if the transaction invalid and does not equal EOS transaction
                                           print("INVALID TRANSACTION READ: " + transaction + "from " + file + '\n') 
-                                          print("Program exits - omitted for testing purposes") # Exit progarm due to invalid format of transaction file
+                                          print("Merge error Program exits - omitted for testing purposes") # Exit progarm due to invalid format of transaction file
                   except IOError:
                         print("Error Reading File")
             merged_trans_file.write("EOS 0000000 000 0000000 ***")  # add EOS to end of merged transaction file
