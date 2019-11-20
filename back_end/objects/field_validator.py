@@ -49,6 +49,7 @@ by utalizing the functions name_is_valid, number_is_valid and amount_is_valid.
 '''
 def transaction_is_valid(transaction):
       transactions = ['EOS', 'NEW', 'DEL', 'XFR', 'DEP', 'WDR']
+      print(transaction)
       length = len(transaction)
       if (length > 4):
 

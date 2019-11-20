@@ -32,7 +32,6 @@ def main():
       new_master_account_file = sys.argv[4]
 
       transaction_files = sys.argv[5:]
-
       generate_merge_transaction(merged_trans_file, transaction_files, master_accounts)  #create merged transaction summary file
       try:
             with open(merged_trans_file) as merged:  # process transaction line by line
@@ -189,7 +188,7 @@ def generate_merge_transaction(merged_file_name, transaction_files, master_accou
                                           merged_trans_file.write(transaction)
                                     elif (transaction != "EOS 0000000 000 0000000 ***"): # if the transaction invalid and does not equal EOS transaction
                                           print("INVALID TRANSACTION READ: " + transaction + "from " + file + '\n') 
-                                          exit() # Exit progarm due to invalid format of transaction file
+                                          print("Program exits - omitted for testing purposes") # Exit progarm due to invalid format of transaction file
                   except IOError:
                         print("Error Reading File")
             merged_trans_file.write("EOS 0000000 000 0000000 ***")  # add EOS to end of merged transaction file

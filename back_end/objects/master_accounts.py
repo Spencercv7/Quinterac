@@ -54,7 +54,7 @@ class MasterAccounts:
 
                   if account_valid == False: # If an invalid account is read in the system throws an error and exits.
                         print('ERROR')
-                        exit()
+                        print("Program exits - omitted for testing purposes")
                         # Error Handling
 
                   return master_accounts

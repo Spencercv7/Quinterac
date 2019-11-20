@@ -92,22 +92,22 @@ def helper(
         content = of.read().splitlines()
         
         # Change
-        print('output transactions:', content)
-        print('output transactions (expected):', expected_merged_transactions)
+        print('Merged output:', content)
+        print('Merged output (expected):', expected_merged_transactions)
         
         for ind in range(len(content)):
             assert content[ind] == expected_merged_transactions[ind]
     
 
-    # compare transactions:
+    # compare:
     with open(new_valid_account, 'r') as of:
         content = of.read().splitlines()
         
         # print out the testing information for debugging
         # the following print content will only display if a 
         # test case failed:
-        print('output transactions:', content)
-        print('output transactions (expected):', expected_valid_accounts)
+        print('Valid accounts output:', content)
+        print('Valid Accounts output (expected):', expected_valid_accounts)
         
         for ind in range(len(content)):
             assert content[ind] == expected_valid_accounts[ind]
@@ -116,8 +116,8 @@ def helper(
         content = of.read().splitlines()
         
         # Change
-        print('output transactions:', content)
-        print('output transactions (expected):', expected_master_accounts)
+        print('Master output:', content)
+        print('Master output (expected):', expected_master_accounts)
         
         for ind in range(len(content)):
             assert content[ind] == expected_master_accounts[ind]
