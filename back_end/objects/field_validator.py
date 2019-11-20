@@ -1,5 +1,8 @@
+'''
+Checks if the number inputed as a parameter (account_num) is valid.
+'''
 def number_is_valid(account_num):
-      if (account_num == '0000000'):
+      if (account_num == '0000000'): # For file end 'blank' account.
             return True
       try:
             account_num = int(account_num)
@@ -10,10 +13,14 @@ def number_is_valid(account_num):
             return False 
 
       return True
-      
+
+
+'''
+Checks if the 'amount' inputed as a parameter (amount) is valid.
+'''      
 def amount_is_valid(amount):
       try:
-            amount = int(amount)
+            amount = int(amount) # Insures that no non-numerical characters were supplied in the amount.
       except ValueError:
             return False
       
@@ -22,15 +29,24 @@ def amount_is_valid(amount):
 
       return True
 
+
+'''
+Checks if the name inputed as a parameter (account_name) is valid.
+'''
 def name_is_valid(account_name):
     
-      account_name = str(account_name)
+      account_name = str(account_name) # Casts to string before checking length.
       
       if 3 > len(account_name) or len(account_name) > 30:
             return False
 
       return True
 
+
+'''
+Checks if the transaction (a line from the transaction summary file) inputed as a parameter (transaction) is valid
+by utalizing the functions name_is_valid, number_is_valid and amount_is_valid.
+'''
 def transaction_is_valid(transaction):
       transactions = ['EOS', 'NEW', 'DEL', 'XFR', 'DEP', 'WDR']
       length = len(transaction)
