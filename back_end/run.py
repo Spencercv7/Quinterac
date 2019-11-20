@@ -18,9 +18,14 @@ Paramaters
 
 master_accounts = MasterAccounts(sys.argv[1])
 
+'''
+Handles main execution of the program. Takes in the parameters from the command line
+Calls creation of merged transaction file and subsequently processes the merged file line by line
+Creates new valid account list and master account file
+'''
 def main():
       
-      merged_trans_file = sys.argv[2]
+      merged_trans_file = sys.argv[2]  #recieves command line parameters
       new_valid_account_file = sys.argv[3]
       new_master_account_file = sys.argv[4]
 
@@ -28,7 +33,7 @@ def main():
 
       generate_merge_transaction(merged_trans_file, transaction_files)  #create merged transaction summary file
       try:
-            with open(merged_trans_file) as merged:
+            with open(merged_trans_file) as merged:  # process transaction line by line
                   transactions = merged.readlines()
                   for line in transactions:
                         handle_transaction(line)
@@ -39,7 +44,11 @@ def main():
       master_accounts.create_valid_account_list(new_valid_account_file)
       master_accounts.create_new_master_account_file(new_master_account_file)
 
-
+'''
+Takes in a transaction string describing a transaction
+Passes string to appropriate function for it to be further processed
+These handling functions do not need to check validity of transaction string format as that is checked upon creation of merged transaction file
+'''
 def handle_transaction(transaction_string):
       transaction = transaction_string.split()
       length = len(transaction)
@@ -50,7 +59,7 @@ def handle_transaction(transaction_string):
       from_account = transaction[3]
       
       name = ''
-      for i in range(4, length):
+      for i in range(4, length):  #concatenate names with spaces
             if (i == length-1):
                   name += transaction[i]
             else:
@@ -74,10 +83,13 @@ def handle_transaction(transaction_string):
             valid_transaction = handle_withdraw(to_account, amount)
 
       if (not valid_transaction and code != 'EOS'):
-            print("Transaction: " + transaction_string)
+            print("Transaction: " + transaction_string) # display transaction string of invalid transactions
       
 
-
+'''
+Checks validity of transactions attempt to create a new account
+Produces errors if account already exists
+'''
 def handle_new_account(to_account, name):
       if not (to_account in master_accounts.accounts):
             master_accounts.add(to_account, name)
@@ -87,6 +99,10 @@ def handle_new_account(to_account, name):
             return False
 
 
+'''
+Checks validity of transactions attempt to delete a new account
+Produces errors if account does not exist or has non-zero balance
+'''
 def handle_del_account(to_account, name):
       if (to_account in master_accounts.accounts):
             if (master_accounts.accounts[to_account].name == name and master_accounts.accounts[to_account].balance == 0):
@@ -99,10 +115,13 @@ def handle_del_account(to_account, name):
             print("Error: Invalid attempt to delete non-existent account " + str(to_account))
             return False
 
-
+'''
+Checks validity of transactions attempt to transfer funds
+Produces errors if one or more accounts do not exist or do not have valid balances
+'''
 def handle_transfer(to_account, from_account, amount):
       if (to_account in master_accounts.accounts and from_account in master_accounts.accounts):
-            if (master_accounts.accounts[to_account].balance <= 99999999-amount and master_accounts.accounts[from_account].balance >= amount):
+            if (master_accounts.accounts[to_account].balance <= 99999999-amount and master_accounts.accounts[from_account].balance >= amount): # if fund reciever will go over limit or if giver has insufficient funds
                   master_accounts.accounts[to_account].balance += amount
                   master_accounts.accounts[from_account].balance -= amount
                   return True
@@ -114,6 +133,10 @@ def handle_transfer(to_account, from_account, amount):
             return False
 
 
+'''
+Checks validity of transactions attempt to deposit funds
+Produces errors if account does not exist or if the deposit amount will cause account to exceed balance limit
+'''
 def handle_deposit(to_account, amount):
       if (to_account in master_accounts.accounts):
             if (master_accounts.accounts[to_account].balance <= 99999999-amount):
@@ -127,6 +150,11 @@ def handle_deposit(to_account, amount):
             print("Deposit Error: Account " + str(to_account) + " does not exist")
             return False
 
+
+'''
+Checks validity of transactions attempt to withdraw funds
+Produces errors if account does not exist or if the account has insufficient funds
+'''
 def handle_withdraw(to_account, amount):
       if (to_account in master_accounts.accounts):
             if (master_accounts.accounts[to_account].balance >= amount):
@@ -144,27 +172,25 @@ def handle_withdraw(to_account, amount):
 
 '''
 Gets transaction files from transaction_files dir and merges them to create a merged transaction summary file
+Checks validity of each transaction and causes fatal error if one is in incorrect format
 '''
 def generate_merge_transaction(merged_file_name, transaction_files):
       try: # Attempts to create new file for writing transactions to
-            merged_trans_file = open(merged_file_name, 'w')
-            try: # Attempts to read files in folder
-                  for file in transaction_files: 
-                        try:
-                              with open(file) as f:
-                                    content = f.readlines()
-                                    for transaction in content:
-                                          transaction_list = transaction.split()
-                                          if transaction_is_valid(transaction_list) and transaction_list[0] != "EOS":  # do not print EOS from transaction files
-                                                merged_trans_file.write(transaction)
-                                          elif (transaction_list[0] != 'EOS'):
-                                                print("INVALID TRANSACTION READ: " + transaction)  #INVALID TRANSACTION FROM TRANSACTION FILE
-                                                exit()
-                        except IOError:
-                              print("Error Reading File")
-                  merged_trans_file.write("EOS 0000000 000 0000000 ***")  # add EOS
-            except IOError:
-                  print("Could not find transaction directory")
+            merged_trans_file = open(merged_file_name, 'w')  # create and open new merge transaction file
+            for file in transaction_files:   # list of transaction summary files
+                  try:
+                        with open(file) as f:   # open each transaction summary file
+                              content = f.readlines()
+                              for transaction in content:
+                                    transaction_list = transaction.split() # split each part of the transaction into a list
+                                    if transaction_is_valid(transaction_list) and transaction != "EOS 0000000 000 0000000 ***":  # do not print EOS from transaction files
+                                          merged_trans_file.write(transaction)
+                                    elif (transaction != "EOS 0000000 000 0000000 ***"): # if the transaction invalid and does not equal EOS transaction
+                                          print("INVALID TRANSACTION READ: " + transaction + "from " + file + '\n') 
+                                          exit() # Exit progarm due to invalid format of transaction file
+                  except IOError:
+                        print("Error Reading File")
+            merged_trans_file.write("EOS 0000000 000 0000000 ***")  # add EOS to end of merged transaction file
       except IOError:
             print("Failed to Create new File.")
 
