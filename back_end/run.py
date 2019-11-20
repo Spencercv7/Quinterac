@@ -1,17 +1,20 @@
-# python -m back_end master_account.txt merged_trans.txt new_valid_accounts.txt new_master_account.txt transactions_1.txt transactions_2.txt
-
-# Paramaters
-# 1. Current Master Account Text File
-# 2. Name for Merged Transaction Text File
-# 3. Name for New Valid Account List Text File
-# 4. Name for New Master Account Text File
-# 5 and on. List The Transaction Summary Text Files to be Processed
-
 # Library Imports
 import sys
 import os
 from back_end.objects.field_validator import transaction_is_valid
 from back_end.objects.master_accounts import MasterAccounts
+
+'''
+python -m back_end master_account.txt merged_trans.txt new_valid_accounts.txt new_master_account.txt transactions_1.txt transactions_2.txt
+
+Paramaters
+1. Current Master Account Text File
+2. Name for Merged Transaction Text File
+3. Name for New Valid Account List Text File
+4. Name for New Master Account Text File
+5 and on. List The Transaction Summary Text Files to be Processed
+
+'''
 
 master_accounts = MasterAccounts(sys.argv[1])
 

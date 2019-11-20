@@ -6,8 +6,5 @@ class Account:
         self.balance = balance
         self.valid = True
 
-    def __string__(self):
-        return ""
-
     def setInvalid(self):
         self.valid = False
