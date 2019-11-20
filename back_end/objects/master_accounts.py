@@ -12,7 +12,7 @@ class MasterAccounts:
             self.accounts = self.from_file(_masteraccounts) # Instatiation declares a new dictory of accounts based on from_file()
      
       def add(self, to_account, name):
-            self.accounts[to_account] = Account(to_account, 0, name)
+            self.accounts[to_account] = Account(to_account, name, 0)
 
       def remove(self, to_account):
             self.accounts[to_account] = None
