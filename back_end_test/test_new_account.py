@@ -16,17 +16,7 @@ def test_r1(capsys):
             '2222333 2000 Ben Lammers',
             '2323453 23231 Jolene Lammers'
         ],
-        input_summary_one=[
-            'EOS 0000000 000 0000000 ***'
-        ], 
-        input_summary_two=[
-            'NEW 1010101 000 0000000 Jon Snow',
-            'EOS 0000000 000 0000000 ***'
-        ], 
-        input_summary_three=[
-            'EOS 0000000 000 0000000 ***'
-        ],
-        expected_merged_transactions=[
+        input_merged_transactions=[
             'NEW 1010101 000 0000000 Jon Snow',
             'EOS 0000000 000 0000000 ***'
         ],
@@ -56,17 +46,7 @@ def test_r2(capsys):
             '2222333 2000 Ben Lammers',
             '2323453 23231 Jolene Lammers'
         ],
-        input_summary_one=[
-            'EOS 0000000 000 0000000 ***'
-        ], 
-        input_summary_two=[
-            'NEW 1000327 000 0000000 Jon Snow',
-            'EOS 0000000 000 0000000 ***'
-        ], 
-        input_summary_three=[
-            'EOS 0000000 000 0000000 ***'
-        ],
-        expected_merged_transactions=[
+        input_merged_transactions=[
             'NEW 1000327 000 0000000 Jon Snow',
             'EOS 0000000 000 0000000 ***'
         ],
