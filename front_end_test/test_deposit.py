@@ -12,8 +12,7 @@ def test_r1(capsys):
             'deposit',
             '1000001',
             '1000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000000',
@@ -23,9 +22,7 @@ def test_r1(capsys):
             'Account Number Not In Use',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -44,8 +41,7 @@ def test_r2(capsys):
             'deposit',
             'basd142',
             '1000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000000',
@@ -55,9 +51,7 @@ def test_r2(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -76,8 +70,7 @@ def test_r3(capsys):
             'deposit',
             '1000000',
             '1000000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000000',
@@ -87,9 +80,7 @@ def test_r3(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -108,8 +99,7 @@ def test_r4(capsys):
             'deposit',
             '1000000',
             '-1000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000000',
@@ -119,9 +109,7 @@ def test_r4(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -140,8 +128,7 @@ def test_r5(capsys):
             'deposit',
             '1000000',
             'adsf1234',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000000',
@@ -151,9 +138,7 @@ def test_r5(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -178,8 +163,7 @@ def test_r6(capsys):
             'deposit',
             '1000000',
             '200000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000000',
@@ -189,9 +173,7 @@ def test_r6(capsys):
             'Exceeded ATM Deposit Limit',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'DEP 1000000 200000 0000000 ***',
@@ -212,15 +194,14 @@ def test_r7(capsys):
             'deposit',
             '1000000',
             '100000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000000',
             '0000000'
         ],
         expected_tail_of_terminal_output=[
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'DEP 1000000 100000 0000000 ***',
@@ -240,8 +221,7 @@ def test_r8(capsys):
             'deposit',
             '1000000',
             '100000000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000000',
@@ -251,9 +231,7 @@ def test_r8(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -272,8 +250,7 @@ def test_r9(capsys):
             'deposit',
             '1000000',
             '-1000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000000',
@@ -283,9 +260,7 @@ def test_r9(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -305,8 +280,7 @@ def test_r10(capsys):
             'deposit',
             '1000000',
             'asdf324',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000000',
@@ -316,9 +290,7 @@ def test_r10(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -338,15 +310,14 @@ def test_r11(capsys):
             'deposit',
             '1000000',
             '10000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000000',
             '0000000'
         ],
         expected_tail_of_terminal_output=[
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'DEP 1000000 10000 0000000 ***',

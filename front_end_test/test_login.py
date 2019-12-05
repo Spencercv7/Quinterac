@@ -9,14 +9,13 @@ def test_r1(capsys):
         terminal_input=[
             'login',
             'machine',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
         ],
         expected_tail_of_terminal_output=[
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -32,8 +31,7 @@ def test_r2(capsys):
         terminal_input=[
             'login',
             'machine',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -41,7 +39,7 @@ def test_r2(capsys):
             '0000000'
         ],
         expected_tail_of_terminal_output=[
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -57,14 +55,13 @@ def test_r3(capsys):
         terminal_input=[
             'login',
             'agent',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
         ],
         expected_tail_of_terminal_output=[
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -80,8 +77,7 @@ def test_r4(capsys):
         terminal_input=[
             'login',
             'agent',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -89,7 +85,7 @@ def test_r4(capsys):
             '0000000'
         ],
         expected_tail_of_terminal_output=[
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -106,8 +102,7 @@ def test_r5(capsys):
             'login',
             'a23bd',
             'agent',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -118,9 +113,7 @@ def test_r5(capsys):
             'Machine or Agent:',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -135,16 +128,21 @@ def test_r6(capsys):
         capsys=capsys,
         terminal_input=[
             'logout',
-            'exit'
+            'login',
+            'agent',
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
         ],
         expected_tail_of_terminal_output=[
             'Must login before doing an alternative command',
-            'Type Login to login or Type Exit to End Program',
+            'Type Login to login',
             'Command:',
-            'Exiting System'
+            'Machine or Agent:',
+            'Command:',
+            'Session Logged Out',
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -161,8 +159,7 @@ def test_r7(capsys):
             'login',
             'machine',
             'login',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -171,9 +168,7 @@ def test_r7(capsys):
             'Session already logged in',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'

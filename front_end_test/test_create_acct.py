@@ -10,8 +10,7 @@ def test_r1(capsys):
             'login',
             'machine',
             'createacct',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -20,9 +19,7 @@ def test_r1(capsys):
             'Cannot perform command in ATM mode',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -42,8 +39,7 @@ def test_r2(capsys):
             'createacct',
             '3270000',
             'Ben Lammers',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '3270000',
@@ -53,9 +49,7 @@ def test_r2(capsys):
             'Account Number Already in Use',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -75,8 +69,7 @@ def test_r3(capsys):
             'createacct',
             '0327000',
             'Ben Lammers',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -85,9 +78,7 @@ def test_r3(capsys):
             'Invalid Account Number or Name',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -107,8 +98,7 @@ def test_r4(capsys):
             'createacct',
             '10327000',
             'Ben Lammers',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -117,9 +107,7 @@ def test_r4(capsys):
             'Invalid Account Number or Name',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -139,8 +127,7 @@ def test_r5(capsys):
             'createacct',
             '327000',
             'Spencer Venable',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -149,9 +136,7 @@ def test_r5(capsys):
             'Invalid Account Number or Name',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -171,8 +156,7 @@ def test_r6(capsys):
             'createacct',
             'yeetest',
             'Spencer Venable',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -181,9 +165,7 @@ def test_r6(capsys):
             'Invalid Account Number or Name',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -203,8 +185,7 @@ def test_r7(capsys):
             'createacct',
             '3270000',
             'Sp',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -213,9 +194,7 @@ def test_r7(capsys):
             'Invalid Account Number or Name',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -235,8 +214,7 @@ def test_r8(capsys):
             'createacct',
             '3270000',
             'Spener Cory Park Venable Long Name Ya Yeet',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -245,9 +223,7 @@ def test_r8(capsys):
             'Invalid Account Number or Name',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -268,8 +244,7 @@ def test_r9(capsys):
             'createacct',
             '3270000',
             ' Spencer Venable',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -278,9 +253,7 @@ def test_r9(capsys):
             'Account Created',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'NEW 3270000 000 0000000 Spencer Venable',
@@ -302,8 +275,7 @@ def test_r10(capsys):
             'createacct',
             '3270000',
             'Spencer Venable ',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -312,9 +284,7 @@ def test_r10(capsys):
             'Account Created',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'NEW 3270000 000 0000000 Spencer Venable',
@@ -335,8 +305,7 @@ def test_r11(capsys):
             'createacct',
             '1000000',
             'Spencer Venable',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -345,9 +314,7 @@ def test_r11(capsys):
             'Account Created',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'NEW 1000000 000 0000000 Spencer Venable',
@@ -371,8 +338,7 @@ def test_r12(capsys):
             'deposit',
             '3271001',
             '1000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -382,9 +348,7 @@ def test_r12(capsys):
             'Account Number Not In Use',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'NEW 3271001 000 0000000 Spencer Venable',

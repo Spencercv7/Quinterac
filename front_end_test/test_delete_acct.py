@@ -10,8 +10,7 @@ def test_r1(capsys):
             'login',
             'machine',
             'deleteacct',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -21,9 +20,7 @@ def test_r1(capsys):
             'Cannot perform command in ATM mode',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -43,8 +40,7 @@ def test_r2(capsys):
             'deleteacct',
             '1000327',
             'Spencer Venable',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -53,9 +49,7 @@ def test_r2(capsys):
             'Account Number Not In Use',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -75,8 +69,7 @@ def test_r3(capsys):
             'deleteacct',
             'aaa1010',
             'Spencer Venable',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '0000000'
@@ -85,9 +78,7 @@ def test_r3(capsys):
             'Invalid Account Number or Name',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -107,8 +98,7 @@ def test_r4(capsys):
             'deleteacct',
             '3271001',
             'Spencer Venable',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '3271001',
@@ -118,9 +108,7 @@ def test_r4(capsys):
             'Account Deleted',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'DEL 3271001 000 0000000 Spencer Venable',
@@ -143,8 +131,7 @@ def test_r5(capsys):
             'deposit',
             '3271001',
             '1000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '3271001',
@@ -154,9 +141,7 @@ def test_r5(capsys):
             'Account Number Not In Use',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'DEL 3271001 000 0000000 Spencer Venable',

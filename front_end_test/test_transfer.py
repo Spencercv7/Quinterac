@@ -14,8 +14,7 @@ def test_r1(capsys):
             '1000327',
             '0000000',
             '20000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -25,9 +24,7 @@ def test_r1(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -48,8 +45,7 @@ def test_r2(capsys):
             '1000327',
             'ABC0001',
             '20000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -59,9 +55,7 @@ def test_r2(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -82,8 +76,7 @@ def test_r3(capsys):
             '1000327',
             '3270000',
             '10000001',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -94,9 +87,7 @@ def test_r3(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -116,8 +107,7 @@ def test_r4(capsys):
             '1000327',
             '3270000',
             '-1',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -128,9 +118,7 @@ def test_r4(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -150,8 +138,7 @@ def test_r5(capsys):
             '1000327',
             '3270000',
             '1asd12',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -162,9 +149,7 @@ def test_r5(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -188,8 +173,7 @@ def test_r6(capsys):
             '1000327',
             '3270000',
             '550000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -200,9 +184,7 @@ def test_r6(capsys):
             'Exceeded ATM Transfer Limit',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'XFR 1000327 550000 3270000 ***',
@@ -223,8 +205,7 @@ def test_r7(capsys):
             '1000327',
             '3270000',
             '550000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -235,9 +216,7 @@ def test_r7(capsys):
             'Transfer Completed',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'XFR 1000327 550000 3270000 ***',
@@ -259,8 +238,7 @@ def test_r8(capsys):
             '1000327',
             '3270000',
             '100000000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -271,9 +249,7 @@ def test_r8(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -294,8 +270,7 @@ def test_r9(capsys):
             '1000327',
             '3270000',
             '-1',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -306,9 +281,7 @@ def test_r9(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -329,8 +302,7 @@ def test_r10(capsys):
             '1000327',
             '3270000',
             '1000asd',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -341,9 +313,7 @@ def test_r10(capsys):
             'Invalid Account Number or Amount',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'EOS 0000000 000 0000000 ***'
@@ -364,8 +334,7 @@ def test_r11(capsys):
             '1000327',
             '3270000',
             '100000',
-            'logout',
-            'exit'
+            'logout'
         ],
         intput_valid_accounts=[
             '1000327',
@@ -376,9 +345,7 @@ def test_r11(capsys):
             'Transfer Completed',
             'Command:',
             'Session Logged Out',
-            'Type Login to login or Type Exit to End Program',
-            'Command:',
-            'Exiting System'
+            'Exiting Front End'
         ],
         expected_output_transactions=[
             'XFR 1000327 100000 3270000 ***',
