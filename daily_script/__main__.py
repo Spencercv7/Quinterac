@@ -1,0 +1,5 @@
+from daily_script.run import main
+
+
+if __name__ == "__main__":
+     main()

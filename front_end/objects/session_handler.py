@@ -25,11 +25,14 @@ class SessionHandler:
           self.withdraw_dict = {}   #dictionaries used to track ATM daily use limits
           self.transfer_dict = {}
           self.deposit_dict = {}
+          self.initiated = False
 
      #Prompts the user for a command and sends it to handle_command
      def get_command(self):
-          if (not self.logged_in):
-               print('Type Login to login or Type Exit to End Program')
+          if (not self.logged_in and not self.initiated):
+               print('Type Login to login')
+          elif (not self.logged_in and self.initiated): #if logged out exit program
+               return self.handle_command('exit')
           command = input('Command:\n').strip()
           return self.handle_command(command.lower())
 
@@ -39,8 +42,8 @@ class SessionHandler:
           if (not self.logged_in):
                if (command == 'login'):
                     self.login()
-               elif (command == 'exit'):
-                    print('Exiting System')
+               elif (command == 'exit' and self.initiated == True):
+                    print('Exiting Front End')
                     return False
                else:
                     print('Must login before doing an alternative command')
@@ -85,6 +88,7 @@ class SessionHandler:
                     self.logged_in = True
                else:
                     print('Invalid Input')
+          self.initiated = True
 
      #closes transaction summary file and resets all attributes of the session
      def logout(self):

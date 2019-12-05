@@ -30,8 +30,6 @@ def main():
       new_valid_account_file = sys.argv[3]
       new_master_account_file = sys.argv[4]
 
-      transaction_files = sys.argv[5:]
-      generate_merge_transaction(merged_trans_file, transaction_files, master_accounts)  #create merged transaction summary file
       try:
             with open(merged_trans_file) as merged:  # process transaction line by line
                   transactions = merged.readlines()
@@ -170,29 +168,6 @@ def handle_withdraw(to_account, amount, master_accounts):
 
 
 
-'''
-Gets transaction files from transaction_files dir and merges them to create a merged transaction summary file
-Checks validity of each transaction and causes fatal error if one is in incorrect format
-'''
-def generate_merge_transaction(merged_file_name, transaction_files, master_accounts):
-      try: # Attempts to create new file for writing transactions to
-            merged_trans_file = open(merged_file_name, 'w')  # create and open new merge transaction file
-            for file in transaction_files:   # list of transaction summary files
-                  try:
-                        with open(file) as f:   # open each transaction summary file
-                              content = f.readlines()
-                              for transaction in content:
-                                    transaction_list = transaction.split() # split each part of the transaction into a list
-                                    if transaction_is_valid(transaction_list) and transaction != "EOS 0000000 000 0000000 ***":  # do not print EOS from transaction files
-                                          merged_trans_file.write(transaction)
-                                    elif (transaction != "EOS 0000000 000 0000000 ***"): # if the transaction invalid and does not equal EOS transaction
-                                          print("INVALID TRANSACTION READ: " + transaction + "from " + file + '\n') 
-                                          print("Merge error Program exits - omitted for testing purposes") # Exit progarm due to invalid format of transaction file
-                  except IOError:
-                        print("Error Reading File")
-            merged_trans_file.write("EOS 0000000 000 0000000 ***")  # add EOS to end of merged transaction file
-      except IOError:
-            print("Failed to Create new File.")
 
 
 
