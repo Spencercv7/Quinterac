@@ -1,4 +1,4 @@
-﻿# Quinterac
+﻿# Quinterac (outdated)
 Simple banking system application created for CISC 327 - Software Quality Assurance
 Created with a focus of using an AGILE approach to test-driven software development
 
