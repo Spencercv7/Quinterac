@@ -1,4 +1,4 @@
-﻿# Quinterac (outdated)
+﻿# Quinterac
 Simple banking system application created for CISC 327 - Software Quality Assurance
 Created with a focus of using an AGILE approach to test-driven software development
 
@@ -58,7 +58,7 @@ The basic structure is:
 ```
 
 ## Testing
-Since we wanted to do test-driven development we wrote out all the test cases for our code before writing any. The tests were then documented in .pdf files that are organized into folders nested in the testing folder. We will then write out test scripts for each described test case in these pdfs. 
+Since we wanted to do test-driven development we wrote out all the test cases before writing any code. The tests were then documented in .pdf files that are organized into folders nested in the testing folder. We will then write out test scripts for each described test case in these pdfs. 
 
 ### Running the Tests
 (documentation to come)
